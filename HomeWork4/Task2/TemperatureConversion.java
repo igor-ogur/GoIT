@@ -6,12 +6,15 @@ import java.io.InputStreamReader;
 
 public class TemperatureConversion {
 
+    final static double CONSTANT_1 = 1.8;
+    final static double CONSTANT_2 = 32.0;
+
     public static double fromCelsiusToFahrenheit (double celsiusTemperature){
-        return 1.8 * celsiusTemperature + 32.0;
+        return  CONSTANT_1 * celsiusTemperature + CONSTANT_2;
     }
 
     public static double fromFahrenheitToCelsius (double fahrenheitTemperature){
-        return (fahrenheitTemperature - 32.0) / 1.8;
+        return (fahrenheitTemperature - CONSTANT_2) / CONSTANT_1;
     }
 
     public static void main(String[] args) {

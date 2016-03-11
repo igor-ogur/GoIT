@@ -25,20 +25,25 @@ public class AreaOfSimpleGeometricShapes {
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             System.out.println("Введите основу треугольника");
             i = Double.parseDouble(reader.readLine());
+            if (i <= 0) throw new NumberFormatException();
             System.out.println("Введите высоту треугольника");
             j = Double.parseDouble(reader.readLine());
+            if (j <= 0) throw new NumberFormatException();
             System.out.println("Площадь треугольника = " + areaOfTriangle(i, j));
             System.out.println();
 
             System.out.println("Введите ширину прямоугольника");
             i = Double.parseDouble(reader.readLine());
+            if (i <= 0) throw new NumberFormatException();
             System.out.println("Введите высоту прямоугольника");
             j = Double.parseDouble(reader.readLine());
+            if (j <= 0) throw new NumberFormatException();
             System.out.println("Площадь прямоугольника = " + areaOfRectangle(i, j));
             System.out.println();
 
             System.out.println("Введите радиус круга");
             i = Double.parseDouble(reader.readLine());
+            if (i <= 0) throw new NumberFormatException();
             System.out.println("Площадь круга = " + areaOfCircle(i));
         }catch (IOException e){
             e.printStackTrace();
