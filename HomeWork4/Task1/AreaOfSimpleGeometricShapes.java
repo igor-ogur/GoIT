@@ -11,12 +11,12 @@ public class AreaOfSimpleGeometricShapes {
         return Math.PI*radius*radius;
     }
 
-    public static double areaOfRectangle(double a, double b){
-        return a*b;
+    public static double areaOfRectangle(double firstSide, double secondSide){
+        return firstSide*secondSide;
     }
 
-    public static double areaOfTriangle(double a, double height){
-        return a*height/2;
+    public static double areaOfTriangle(double triangleBase, double height){
+        return triangleBase*height/2;
     }
 
     public static void main(String[] args) {
