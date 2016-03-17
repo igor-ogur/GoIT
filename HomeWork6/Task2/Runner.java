@@ -42,8 +42,8 @@ public class Runner {
         System.out.println(countDifferentKindsOfMusicalInstrument(musicStore.getMusicalInstruments()));
 
         Map<String, Integer> order2 = new TreeMap<String, Integer>();
-        order2.put("guitar", 6);
-        order2.put("piano", 1);
+        order2.put("guitar", 5);
+        order2.put("pianos", 1);
 
         musicStore.prepareInstruments(order2);
         System.out.println(countDifferentKindsOfMusicalInstrument(musicStore.getMusicalInstruments()));

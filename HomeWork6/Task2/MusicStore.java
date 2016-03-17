@@ -50,7 +50,6 @@ public class MusicStore {
         for (int i = 0; i < musicalInstruments.size(); i++) {
                 if (musicalInstruments.get(i) instanceof Guitar) {
                     musicalInstruments.remove(i);
-                    System.out.println("rg");
                     if (++countRemoves == numberGuitars) return;
                 }
         }
