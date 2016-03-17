@@ -2,7 +2,7 @@ package HomeWork5.Task1;
 
 public class MinMaxFounder {
 
-    public static int getMinElement(int[] array){
+    public static int getMinElement(int[] array) throws Exception{
         int result = array[0];
         for (int i = 1; i < array.length; i++) {
             if (array[i] < result) {
@@ -12,7 +12,7 @@ public class MinMaxFounder {
         return result;
     }
 
-    public static int getMaxElement(int[] array){
+    public static int getMaxElement(int[] array) throws Exception{
         int result = array[0];
         for (int i = 1; i < array.length; i++) {
             if (array[i] > result) {
@@ -29,7 +29,11 @@ public class MinMaxFounder {
             System.out.print(array[i] + " ");
         }
         System.out.println();
-        System.out.println("Minimal element of array is " + getMinElement(array));
-        System.out.println("Maximal element of array is " + getMaxElement(array));
+        try {
+            System.out.println("Minimal element of array is " + getMinElement(array));
+            System.out.println("Maximal element of array is " + getMaxElement(array));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
