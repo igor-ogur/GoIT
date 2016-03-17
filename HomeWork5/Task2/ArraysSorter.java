@@ -26,6 +26,7 @@ public class ArraysSorter {
             System.out.print(array[i] + " ");
         }
         System.out.println();
+
         try {
             array = sortArrayFromMinToMax(array);
         } catch (Exception e) {
