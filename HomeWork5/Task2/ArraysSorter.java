@@ -3,7 +3,7 @@ package HomeWork5.Task2;
 
 public class ArraysSorter {
 
-    public static double[] sortArrayFromMinToMax (double[] array){
+    public static double[] sortArrayFromMinToMax (double[] array) throws Exception{
         boolean check = true;
         while (check) {
             check = false;
@@ -26,7 +26,11 @@ public class ArraysSorter {
             System.out.print(array[i] + " ");
         }
         System.out.println();
-        array = sortArrayFromMinToMax(array);
+        try {
+            array = sortArrayFromMinToMax(array);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         for (int i = 0; i < 10; i++) {
             System.out.print(array[i] + " ");
