@@ -1,5 +1,6 @@
 package HomeWork6.Task2;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -35,36 +36,42 @@ public class MusicStore {
     }
 
     private void removePianosFromMusicalInstrumentsList(int numberPianos) {
+        List<MusicalInstrument> temp = new ArrayList<MusicalInstrument>(musicalInstruments);
         int countRemoves = 0;
-        for (int i = 0; i < musicalInstruments.size(); i++) {
-                if (musicalInstruments.get(i) instanceof Piano) {
-                    musicalInstruments.remove(i);
-                    if (++countRemoves == numberPianos) return;
-                }
+        for (MusicalInstrument x : temp){
+            if (x instanceof Piano){
+                musicalInstruments.remove(x);
+                if (++countRemoves == numberPianos) break;
+            }
         }
-        if (countRemoves != numberPianos) throw new IllegalArgumentException("Number pianos in order is more then music store has");
+        if (countRemoves != numberPianos) throw new IllegalArgumentException("Number pianos in order is more then music store has. Order has been canceled");
+        musicalInstruments.retainAll(temp);
     }
 
     private void removeGuitarsFromMusicalInstrumentsList(int numberGuitars) {
+        List<MusicalInstrument> temp = new ArrayList<MusicalInstrument>(musicalInstruments);
         int countRemoves = 0;
-        for (int i = 0; i < musicalInstruments.size(); i++) {
-                if (musicalInstruments.get(i) instanceof Guitar) {
-                    musicalInstruments.remove(i);
-                    if (++countRemoves == numberGuitars) return;
-                }
+        for (MusicalInstrument x : temp){
+            if (x instanceof Guitar){
+                musicalInstruments.remove(x);
+                if (++countRemoves == numberGuitars) break;
+            }
         }
-        if (countRemoves != numberGuitars) throw new IllegalArgumentException("Number guitars in order is more then music store has");
+        if (countRemoves != numberGuitars) throw new IllegalArgumentException("Number guitars in order is more then music store has. Order has been canceled");
+        musicalInstruments.retainAll(temp);
     }
 
     private void removeTrumpetsFromMusicalInstrumentsList(int numberTrumpets) {
+        List<MusicalInstrument> temp = new ArrayList<MusicalInstrument>(musicalInstruments);
         int countRemoves = 0;
-        for (int i = 0; i < musicalInstruments.size(); i++) {
-                if (musicalInstruments.get(i) instanceof Trumpet) {
-                    musicalInstruments.remove(i);
-                    if (++countRemoves == numberTrumpets) return;
-                }
+        for (MusicalInstrument x : temp){
+            if (x instanceof Trumpet){
+                musicalInstruments.remove(x);
+                if (++countRemoves == numberTrumpets) break;
+            }
         }
-        if (countRemoves != numberTrumpets) throw new IllegalArgumentException("Number trumpets in order is more then music store has");
+        if (countRemoves != numberTrumpets) throw new IllegalArgumentException("Number trumpets in order is more then music store has. Order has been canceled");
+        musicalInstruments.retainAll(temp);
     }
 
 }
