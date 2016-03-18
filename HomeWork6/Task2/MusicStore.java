@@ -44,7 +44,7 @@ public class MusicStore {
                 if (++countRemoves == numberPianos) break;
             }
         }
-        if (countRemoves != numberPianos) throw new IllegalArgumentException("Number pianos in order is more then music store has. Order has been canceled");
+        if (countRemoves < numberPianos) throw new IllegalStateException("Number pianos in order is more then music store has. Order has been canceled");
         musicalInstruments.retainAll(temp);
     }
 
@@ -57,7 +57,7 @@ public class MusicStore {
                 if (++countRemoves == numberGuitars) break;
             }
         }
-        if (countRemoves != numberGuitars) throw new IllegalArgumentException("Number guitars in order is more then music store has. Order has been canceled");
+        if (countRemoves < numberGuitars) throw new IllegalStateException("Number guitars in order is more then music store has. Order has been canceled");
         musicalInstruments.retainAll(temp);
     }
 
@@ -70,7 +70,7 @@ public class MusicStore {
                 if (++countRemoves == numberTrumpets) break;
             }
         }
-        if (countRemoves != numberTrumpets) throw new IllegalArgumentException("Number trumpets in order is more then music store has. Order has been canceled");
+        if (countRemoves < numberTrumpets) throw new IllegalStateException("Number trumpets in order is more then music store has. Order has been canceled");
         musicalInstruments.retainAll(temp);
     }
 
