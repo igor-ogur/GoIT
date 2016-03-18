@@ -28,13 +28,21 @@ public class Runner {
         order1.put("guitar", 7);
         order1.put("trumpet", 2);
 
-        musicStore.prepareInstruments(order1);
+        try{
+            musicStore.prepareInstruments(order1);
+        }catch (Exception e){
+            System.out.println("Exception happened: " + e.getMessage());
+        }
         System.out.println(countDifferentKindsOfMusicalInstrument(musicStore.getMusicalInstruments()));
 
         Map<String, Integer> order2 = new TreeMap<String, Integer>();
         order2.put("piano", 1);
 
-        musicStore.prepareInstruments(order2);
+        try{
+            musicStore.prepareInstruments(order2);
+        }catch (Exception e){
+            System.out.println("Exception happened: " + e.getMessage());
+        }
         System.out.println(countDifferentKindsOfMusicalInstrument(musicStore.getMusicalInstruments()));
 
         Map<String, Integer> order3 = new TreeMap<String, Integer>();
@@ -42,7 +50,11 @@ public class Runner {
         order3.put("guitar", 8);
         order3.put("trumpet", 6);
 
-        musicStore.prepareInstruments(order3);
+        try {
+            musicStore.prepareInstruments(order3);
+        }catch (Exception e){
+            System.out.println("Exception happened: " + e.getMessage());
+        }
         System.out.println(countDifferentKindsOfMusicalInstrument(musicStore.getMusicalInstruments()));
     }
 
