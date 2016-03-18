@@ -70,7 +70,7 @@ public class MusicStore {
                 if (++countRemoves == numberTrumpets) break;
             }
         }
-        if (countRemoves < numberTrumpets) throw new IllegalStateException("Number trumpets in order is more then music store has. Order has been canceled");
+        if (countRemoves != numberTrumpets) throw new IllegalStateException("Number trumpets in order is more then music store has. Order has been canceled");
         musicalInstruments.retainAll(temp);
     }
 
