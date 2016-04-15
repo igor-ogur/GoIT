@@ -26,7 +26,8 @@ public class CesarCipher {
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < textToEncrypt.length(); i++) {
             char c = textToEncrypt.charAt(i);
-            result.append(alphabet.get((alphabet.indexOf(c) + offset) % cardinality));
+            if (alphabet.indexOf(c) != -1) result.append(alphabet.get((alphabet.indexOf(c) + offset) % cardinality));
+            else result.append(c);
         }
         return result.toString();
     }
@@ -36,7 +37,8 @@ public class CesarCipher {
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < textToDecrypt.length(); i++) {
             char c = textToDecrypt.charAt(i);
-            result.append(alphabet.get((alphabet.indexOf(c) - offset + cardinality) % cardinality));
+            if (alphabet.indexOf(c) != -1) result.append(alphabet.get((alphabet.indexOf(c) - offset + cardinality) % cardinality));
+            else result.append(c);
         }
         return result.toString();
     }

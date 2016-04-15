@@ -29,5 +29,6 @@ public class Runner {
 
         System.out.println("Decrypted files collection:\n");
         encryptedFiles.stream().forEach(e -> System.out.println(cesarCipher.decrypt(e.toString(), 3)));
+
     }
 }
