@@ -1,40 +1,52 @@
-package practicum2.task1;
-
-import java.math.BigInteger;
-import java.util.ArrayList;
+package practice.src.practicum2.task1;
 
 public class AddNumberBase36 {
     public String add(String a, String b) {
-        ArrayList<Character> numbers = new ArrayList<>();
-        for (int i = 0; i <=9 ; i++) {
-            numbers.add((char) (i + 48));
-        }
-        for (int i = 10; i < 36 ; i++) {
-            numbers.add((char) (i + 87));
-        }
-        char[] numberA = new StringBuilder(a).reverse().toString().toCharArray();
-        BigInteger sum = new BigInteger("0");
-        System.out.println(sum.toString());
-        /*for (int i = 0; i < numberA.length; i++) {
-            sum += numbers.indexOf(numberA[i]) * Math.pow(36, i) ;
-        }
-        char[] numberB = new StringBuilder(b).reverse().toString().toCharArray();
-        for (int i = 0; i < numberB.length; i++) {
-            sum += numbers.indexOf(numberB[i]) * Math.pow(36, i) ;
-        }
-        System.out.println(sum);
-        StringBuilder result = new StringBuilder();
-        while (sum > 0){
-            result.append(numbers.get(sum % 36));
-            sum /= 36;
-        }
-        if (result.length() == 0) return "0";
-        return result.reverse().toString();*/
-        return "0";
-    }
+        
+        /*BigInteger aInt = new BigInteger(a, 36);
+        BigInteger bInt = new BigInteger(b, 36);
+        aInt = aInt.add(bInt);
+        return aInt.toString(36);*/
 
-    public static void main(String[] args) {
-        AddNumberBase36 addNumberBase36 = new AddNumberBase36();
-        System.out.println(addNumberBase36.add("dfsgdgdgdfgdfgdfgdsfsgdfsg", "sfdgfgfgsfg"));
+        String numbers = "0123456789abcdefghijklmnopqrstuvwxyz";
+        StringBuilder result = new StringBuilder();
+        a = new StringBuilder(a).reverse().toString().toLowerCase();
+        b = new StringBuilder(b).reverse().toString().toLowerCase();
+        int maxLength;
+        String maxLengthNumber;
+        if (a.length() >= b.length()){
+            maxLength = a.length();
+            maxLengthNumber = a;
+        }else {
+            maxLength = b.length();
+            maxLengthNumber = b;
+        }
+        int term = 0;
+        for (int i = 0; i < maxLength; i++) {
+            try {
+                int index = numbers.indexOf(a.charAt(i)) + numbers.indexOf(b.charAt(i));
+                if (index + term < 36) {
+                    result.append(numbers.charAt(index + term));
+                    term = 0;
+                } else {
+                    result.append(numbers.charAt(index + term - 36));
+                    term = 1;
+                }
+            }catch (IndexOutOfBoundsException e){
+                for (int j = i; j < maxLength; j++) {
+                            int index = numbers.indexOf(maxLengthNumber.charAt(j));
+                            if (index + term < 36) {
+                                result.append(numbers.charAt(index + term));
+                                term = 0;
+                            } else {
+                                result.append(numbers.charAt(index + term - 36));
+                                term = 1;
+                            }
+                }
+                break;
+            }
+        }
+        if (term == 1) result.append(1);
+        return result.reverse().toString();
     }
 }

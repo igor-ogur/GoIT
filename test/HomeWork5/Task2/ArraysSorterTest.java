@@ -3,8 +3,6 @@ package HomeWork5.Task2;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static HomeWork5.Task2.ArraysSorter.sortArrayFromMinToMax;
-import static org.junit.Assert.*;
 
 public class ArraysSorterTest {
 
