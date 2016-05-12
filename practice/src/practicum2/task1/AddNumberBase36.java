@@ -1,4 +1,4 @@
-package practice.src.practicum2.task1;
+package practicum2.task1;
 
 public class AddNumberBase36 {
     public String add(String a, String b) {
