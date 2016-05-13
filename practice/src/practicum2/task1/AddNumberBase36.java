@@ -2,7 +2,7 @@ package practicum2.task1;
 
 public class AddNumberBase36 {
     public String add(String a, String b) {
-        
+
         /*BigInteger aInt = new BigInteger(a, 36);
         BigInteger bInt = new BigInteger(b, 36);
         aInt = aInt.add(bInt);
