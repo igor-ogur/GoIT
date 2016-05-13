@@ -1,4 +1,4 @@
-package practice.src.practicum2.task6;
+package practicum2.task6;
 
 public class SetZero {
     public int set(int num, int i) {
