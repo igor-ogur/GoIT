@@ -1,4 +1,4 @@
-package practicum4;
+package practicum4.task1;
 
 public class ColorChain {
     /*int countChange(int amount) {
