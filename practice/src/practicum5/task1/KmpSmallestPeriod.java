@@ -1,4 +1,4 @@
-package practicum5;
+package practicum5.task1;
 
 public class KmpSmallestPeriod {
     public String findSmalletstPeriod(String input) {
