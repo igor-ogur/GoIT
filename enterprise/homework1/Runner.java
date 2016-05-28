@@ -2,8 +2,7 @@ package enterprise.homework1;
 
 import javax.swing.*;
 import java.util.*;
-
-import static enterprise.homework1.TestFrame.createGUI;
+import static enterprise.homework1.Window.createGUI;
 
 public class Runner {
     static double[] resultsForArrayListFor10KElements;

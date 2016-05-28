@@ -5,7 +5,7 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-public class TestFrame extends JFrame {
+public class Window extends JFrame {
 
     public static void createGUI() {
         JFrame frame = new JFrame("Average time for performance collection operations");
