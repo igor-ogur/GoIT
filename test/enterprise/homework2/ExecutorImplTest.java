@@ -15,7 +15,7 @@ public class ExecutorImplTest {
         for (Task<Professional> professionalTask : professionalTasks) {
             personExecutor.addTask(professionalTask);
         }
-        personExecutor.addTask(new EmployeeTask("Petr", "Petrov", "Mailman"), new PersonValidator());
+        personExecutor.addTask(new PersonTask(), new PersonValidator());
 
         personExecutor.execute();
 
