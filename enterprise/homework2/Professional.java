@@ -15,4 +15,14 @@ public class Professional extends Employee {
         super(name, surname, profession);
         this.experience = experience;
     }
+
+    @Override
+    public String toString() {
+        return "Professional{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                "profession='" + profession + '\'' +
+                "experience=" + experience +
+                '}';
+    }
 }

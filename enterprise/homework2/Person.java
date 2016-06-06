@@ -1,8 +1,8 @@
 package enterprise.homework2;
 
 public class Person {
-    private String name;
-    private String surname;
+    String name;
+    String surname;
 
     public String getName() {
         return name;

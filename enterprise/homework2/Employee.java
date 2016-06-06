@@ -1,7 +1,7 @@
 package enterprise.homework2;
 
 public class Employee extends Person {
-    private String profession;
+    String profession;
 
     public String getProfession() {
         return profession;
@@ -14,5 +14,14 @@ public class Employee extends Person {
     public Employee(String name, String surname, String profession) {
         super(name, surname);
         this.profession = profession;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                "profession='" + profession + '\'' +
+                '}';
     }
 }
