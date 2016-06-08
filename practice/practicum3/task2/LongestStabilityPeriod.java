@@ -1,34 +1,51 @@
 package practice.practicum3.task2;
 
+import java.util.ArrayList;
+
 public class LongestStabilityPeriod {
     public int count(int[] gdp) {
-        int comparing = gdp[0];
-        int countMonths = 1;
-        int secondCount = 1;
-        int maxPeriod = 1;
-        boolean b = false;
-        for (int i = 1; i < gdp.length; i++) {
-            if (Math.abs(gdp[i] - comparing) == 0) {
-                countMonths++;
-                if (countMonths > maxPeriod) maxPeriod = countMonths;
-            }
-            if (Math.abs(gdp[i] - comparing) == 1) {
-                countMonths++;
-                if (countMonths > maxPeriod) maxPeriod = countMonths;
-                b = true;
-                secondCount++;
-                if (secondCount > maxPeriod) maxPeriod = secondCount;
+        if (gdp.length == 0) return 0;
+        if (gdp.length == 1) return 1;
 
-            }else {
-                countMonths = 1;
-                comparing = gdp[i];
+        int comparing;
+        int countMonths = 1;
+        ArrayList<Integer> periods = new ArrayList<>();
+
+        for (int i = 0; i < gdp.length-1; i++) {
+            comparing = gdp[i];
+            for (int j = i+1; j < gdp.length; j++) {
+                int temp = gdp[j] - comparing;
+                if (temp == 1 || temp == 0) countMonths++;
+                else break;
             }
+            periods.add(countMonths);
+            countMonths = 1;
         }
-        return maxPeriod;
+
+        countMonths = 1;
+
+        for (int i = 0; i < gdp.length-1; i++) {
+            comparing = gdp[i];
+            for (int j = i+1; j < gdp.length; j++) {
+                int temp = gdp[j] - comparing;
+                if (temp == -1 || temp == 0) countMonths++;
+                else break;
+            }
+            periods.add(countMonths);
+            countMonths = 1;
+        }
+
+
+        int result = periods.get(0);
+        for (Integer period : periods) {
+            if (period > result) result = period;
+        }
+
+        return result;
     }
 
     public static void main(String[] args) {
-        int[] a = {901, 901, 901, 902, 902, 903, 903, 902, 902, 901};
+        int[] a = {902, 902, 901, 902, 902, 903, 902, 902, 901, 902, 901, 901, 902, 903};
         System.out.println(new LongestStabilityPeriod().count(a));
     }
 }
