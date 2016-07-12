@@ -42,7 +42,6 @@ public class SerialExecutor<T> implements Executor<T> {
 
     @Override
     public List<T> getValidResults() {
-        isExecuted();
         return validResults;
     }
 

@@ -1,7 +1,5 @@
 package enterprise.module4;
 
-import enterprise.homework2.ExecutorException;
-
 import java.util.List;
 
 public interface Executor<T> {

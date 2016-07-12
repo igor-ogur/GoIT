@@ -1,17 +1,64 @@
-<project name="ant-example" basdir = ".">
+<project name="GoIT" basedir = ".">
 
-    <property name = "src" location="src"/>
+    <property name = "src" location="enterprise/module4"/>
     <property name = "build" location="build"/>
     <property name = "dist" location="dist"/>
+    <property name = "test.src" location="test/enterprise/module4"/>
+    <property name = "test.build" location="test.build"/>
+    <property name = "test.report" location="test-report"/>
+    <property name = "lib" location="lib"/>
+
+    <path id = "test.classpath">
+        <pathelement location = "${lib}/junit-4.12.jar"/>
+    </path>
 
     <target name = "init">
-        <mkdir dir = "$(build)"/>
-        <mkdir dir = "$(dist)"/>
+        <mkdir dir = "${build}"/>
+        <mkdir dir = "${test.build}"/>
+        <mkdir dir = "${test.report}"/>
+        <mkdir dir = "${dist}"/>
     </target>
 
+    <target name = "compile" depends = "init">
+        <javac srcdir = "${src}" destdir = "${build}" source = "1.8" target = "1.8"/>
+    </target>
+
+    <target name = "compile.test" depends = "compile">
+        <javac srcdir = "${test.src}" destdir = "${test.build}" source = "1.8" target = "1.8"/>
+        <classpath>
+            <pathelement location="${build}"/>
+            <path refid = "test.classpath"/>
+        </classpath>
+    </target>
+
+    <target name="junit" depends="compile.test">
+        <junit printsummary="yes" haltonfailure="no">
+            <classpath>
+                <path refid="test.classpath" />
+            </classpath>
+
+            <test name="SerialExecutorTest" haltonfailure="no" todir="${test.report}">
+                <formatter type="plain" />
+                <formatter type="xml" />
+            </test>
+        </junit>
+    </target>
+
+    <target name="dist" depends="junit">
+        <jar destfile = "${dist}/antExample.jar">
+            <fileset dir ="${build}"/>
+            <manifest>
+                <attribute name = "Main-Class" value = "enterprise/module4/Runner"/>
+            </manifest>
+        </jar>
+    </target>
+
+
     <target name="clean">
-        <delete dir="$(build)"/>
-        <delete dir="$(dist)"/>
+        <delete dir="${build}"/>
+        <delete dir="${dist}"/>
+        <delete dir="${test.build}"/>
+        <delete dir="${test.report}"/>
     </target>
 
 </project>
